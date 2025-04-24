@@ -4,7 +4,7 @@
 
 # E501: line too long (XXX > 120 characters)
 # flake8: noqa: E501
-# Source for metric names: https://github.com/temporalio/temporal/blob/master/common/metrics/metric_defs.go
+# Source for metric names: https://github.com/temporalio/temporal/blob/17e06952d471f86d106af0158419d9e288371585/common/metrics/metric_defs.go
 METRIC_MAP = {
     # General
     'service_requests': 'service.requests',
@@ -13,6 +13,17 @@ METRIC_MAP = {
     'service_error_with_type': 'service.error_with_type',
     'service_errors_critical': 'service.errors.critical',
     'service_errors_resource_exhausted': 'service.errors.resource_exhausted',
+    'service_panics': 'service.panics',
+    'service_errors_invalid_argument': 'service.errors.invalid_argument',
+    'service_errors_namespace_not_active': 'service.errors.namespace_not_active',
+    'service_errors_entity_not_found': 'service.errors.entity_not_found',
+    'service_errors_execution_already_started': 'service.errors.execution_already_started',
+    'service_errors_context_timeout': 'service.errors.context_timeout',
+    'service_errors_retry_task': 'service.errors.retry_task',
+    'service_errors_incomplete_history': 'service.errors.incomplete_history',
+    'service_errors_nondeterministic': 'service.errors.nondeterministic',
+    'service_errors_unauthorized': 'service.errors.unauthorized',
+    'service_errors_authorize_failed': 'service.errors.authorize_failed',
     'service_latency': 'service.latency',
     'service_latency_nouserlatency': 'service.latency.nouserlatency',
     'service_latency_userlatency': 'service.latency.userlatency',
@@ -58,6 +69,12 @@ METRIC_MAP = {
     'cache_errors': 'cache.errors',
     'cache_latency': 'cache.latency',
     'cache_miss': 'cache.miss',
+    'cache_size': 'cache.size',
+    'cache_usage': 'cache.usage',
+    'cache_pinned_usage': 'cache.pinned_usage',
+    'cache_ttl': 'cache.ttl',
+    'cache_entry_age_on_get': 'cache.entry_age_on_get',
+    'cache_entry_age_on_eviction': 'cache.entry_age_on_eviction',
     'history_event_notification_queueing_latency': 'history.event_notification.queueing_latency',
     'history_event_notification_fanout_latency': 'history.event_notification.fanout_latency',
     'history_event_notification_inflight_message_gauge': 'history.event_notification.inflight_message',
@@ -111,6 +128,10 @@ METRIC_MAP = {
     'task_errors_namespace_handover': 'task.errors.namespace_handover',
     'task_errors_throttled': 'task.errors.throttled',
     'task_errors_corruption': 'task.errors.corruption',
+    'task_terminal_failures': 'task.terminal_failures',
+    'task_dlq_failures': 'task.dlq_failures',
+    'task_dlq_latency': 'task.dlq_latency',
+    'task_internal_error': 'task.internal_error',
     'task_schedule_to_start_latency': 'task.schedule_to_start_latency',
     'transfer_task_missing_event_counter': 'transfer_task.missing_event_counter',
     'task_batch_complete_counter': 'task.batch_complete_counter',
@@ -141,6 +162,18 @@ METRIC_MAP = {
     'accept_workflow_update_message': 'accept_workflow_update_message',
     'complete_workflow_update_message': 'complete_workflow_update_message',
     'reject_workflow_update_message': 'reject_workflow_update_message',
+    'workflow_execution_update_registry_size': 'workflow.execution.update_registry_size',
+    'workflow_execution_update_registry_size_limited': 'workflow.execution.update_registry_size_limited',
+    'workflow_execution_update_request_rate_limited': 'workflow.execution.update_request_rate_limited',
+    'workflow_execution_update_too_many': 'workflow.execution.update_too_many',
+    'workflow_execution_update_aborted': 'workflow.execution.update_aborted',
+    'workflow_execution_update_continue_as_new_suggestions': 'workflow.execution.update_continue_as_new_suggestions',
+    'workflow_execution_update_sent_to_worker': 'workflow.execution.update_sent_to_worker',
+    'workflow_execution_update_sent_to_worker_again': 'workflow.execution.update_sent_to_worker_again',
+    'workflow_execution_update_wait_stage_accepted': 'workflow.execution.update_wait_stage_accepted',
+    'workflow_execution_update_wait_stage_completed': 'workflow.execution.update_wait_stage_completed',
+    'workflow_execution_update_client_timeout': 'workflow.execution.update_client_timeout',
+    'workflow_execution_update_server_timeout': 'workflow.execution.update_server_timeout',
     'activity_eager_execution': 'activity.eager_execution',
     'workflow_eager_execution': 'workflow.eager_execution',
     'workflow_eager_execution_denied': 'workflow.eager_execution.denied',
@@ -407,4 +440,15 @@ METRIC_MAP = {
     'visibility_persistence_errors': 'visibility.persistence.errors',
     'visibility_persistence_resource_exhausted': 'visibility.persistence.resource_exhausted',
     'visibility_persistence_latency': 'visibility.persistence.latency',
+    # HTTP/Nexus
+    'http_service_requests': 'http.service_requests',
+    'nexus_request_preprocess_errors': 'nexus.request_preprocess_errors',
+    'nexus_completion_request_preprocess_errors': 'nexus.completion_request_preprocess_errors',
+    # Dynamic Worker Pool
+    'dynamic_worker_pool_scheduler_dequeued_tasks': 'dynamic_worker_pool.scheduler_dequeued_tasks',
+    'dynamic_worker_pool_scheduler_rejected_tasks': 'dynamic_worker_pool.scheduler_rejected_tasks',
+    # Host/Rate Limit
+    'host_rps_limit': 'host.rps_limit',
+    'namespace_host_rps_limit': 'namespace_host.rps_limit',
+    'handover_wait_latency': 'handover_wait_latency',
 }

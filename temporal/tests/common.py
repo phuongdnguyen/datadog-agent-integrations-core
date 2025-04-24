@@ -9,19 +9,19 @@ TAGS = ["endpoint:http://localhost:8000/metrics"]
 METRICS = [
     {
         "name": "ack_level.update.count",
-        "value": 12,
+        "value": 8,
         "type": AggregatorStub.MONOTONIC_COUNT,
         "tags": TAGS + ["operation:TimerQueueProcessor", "service_name:history"],
     },
     {
         "name": "ack_level.update.count",
-        "value": 12,
+        "value": 8,
         "type": AggregatorStub.MONOTONIC_COUNT,
         "tags": TAGS + ["operation:TransferQueueProcessor", "service_name:history"],
     },
     {
         "name": "ack_level.update.count",
-        "value": 12,
+        "value": 8,
         "type": AggregatorStub.MONOTONIC_COUNT,
         "tags": TAGS + ["operation:VisibilityQueueProcessor", "service_name:history"],
     },
@@ -63,19 +63,18 @@ METRICS = [
     },
     {
         "name": "acquire_shards.latency.sum",
-        "value": 0.066191125,
+        "value": 0.013166069,
         "type": AggregatorStub.MONOTONIC_COUNT,
         "tags": TAGS + ["operation:ShardController", "service_name:history"],
     },
     {
         "name": "loaded_task_queue_count",
-        "value": 4,
+        "value": 2,
         "type": AggregatorStub.GAUGE,
         "tags": TAGS
         + [
             "namespace:default",
             "operation:MatchingEngine",
-            "queue_type:Normal",
             "service_name:matching",
             "task_type:Activity",
         ],
@@ -88,7 +87,6 @@ METRICS = [
         + [
             "namespace:default",
             "operation:MatchingEngine",
-            "queue_type:Sticky",
             "service_name:matching",
             "task_type:Workflow",
         ],
