@@ -25,7 +25,7 @@ services:
     environment:
       POSTGRES_PASSWORD: temporal
       POSTGRES_USER: temporal
-    image: postgres:13
+    image: postgres:13.5
     networks:
       - temporal-network
     expose:
@@ -86,7 +86,7 @@ services:
         condition: service_healthy
     environment:
       - TEMPORAL_CLI_ADDRESS=temporal:7233
-    image: temporalio/admin-tools:${TEMPORAL_VERSION}
+    image: temporalio/admin-tools:1.21.5
     networks:
       - temporal-network
     stdin_open: true

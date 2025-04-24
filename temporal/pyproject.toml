@@ -30,6 +30,7 @@ classifiers = [
 ]
 dependencies = [
     "datadog-checks-base>=37.4.0",
+    "goastpy>=0.1.10",
 ]
 dynamic = [
     "version",

@@ -9,19 +9,19 @@ TAGS = ["endpoint:http://localhost:8000/metrics"]
 METRICS = [
     {
         "name": "ack_level.update.count",
-        "value": 8,
+        "value": 12,
         "type": AggregatorStub.MONOTONIC_COUNT,
         "tags": TAGS + ["operation:TimerQueueProcessor", "service_name:history"],
     },
     {
         "name": "ack_level.update.count",
-        "value": 8,
+        "value": 12,
         "type": AggregatorStub.MONOTONIC_COUNT,
         "tags": TAGS + ["operation:TransferQueueProcessor", "service_name:history"],
     },
     {
         "name": "ack_level.update.count",
-        "value": 8,
+        "value": 12,
         "type": AggregatorStub.MONOTONIC_COUNT,
         "tags": TAGS + ["operation:VisibilityQueueProcessor", "service_name:history"],
     },
@@ -63,18 +63,19 @@ METRICS = [
     },
     {
         "name": "acquire_shards.latency.sum",
-        "value": 0.013166069,
+        "value": 0.066191125,
         "type": AggregatorStub.MONOTONIC_COUNT,
         "tags": TAGS + ["operation:ShardController", "service_name:history"],
     },
     {
         "name": "loaded_task_queue_count",
-        "value": 2,
+        "value": 4,
         "type": AggregatorStub.GAUGE,
         "tags": TAGS
         + [
             "namespace:default",
             "operation:MatchingEngine",
+            "queue_type:Normal",
             "service_name:matching",
             "task_type:Activity",
         ],
@@ -87,6 +88,7 @@ METRICS = [
         + [
             "namespace:default",
             "operation:MatchingEngine",
+            "queue_type:Sticky",
             "service_name:matching",
             "task_type:Workflow",
         ],
@@ -358,4 +360,18 @@ MOCKED_METRICS = [
     "temporal.server.workflow.task.attempt.count",
     "temporal.server.workflow.task.attempt.sum",
     "temporal.server.workflow.task.timeout_overrides.count",
+    "temporal.server.gomaxprocs",
+    "temporal.server.memory.allocated",
+    "temporal.server.memory.gc_pause_ms.bucket",
+    "temporal.server.memory.gc_pause_ms.count",
+    "temporal.server.memory.gc_pause_ms.sum",
+    "temporal.server.memory.heap",
+    "temporal.server.memory.heapidle",
+    "temporal.server.memory.heapinuse",
+    "temporal.server.memory.num_gc.bucket",
+    "temporal.server.memory.num_gc.count",
+    "temporal.server.memory.num_gc.sum",
+    "temporal.server.memory.stack",
+    "temporal.server.num_goroutines",
+    "temporal.server.restarts.count",
 ]
